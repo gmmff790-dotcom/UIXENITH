@@ -224,15 +224,15 @@ local Library do
 	}
 
 	local Themes = { -- edit this to change the theme
-		["Default"] = {
-			["Background"] = FromRGB(15, 12, 16),
-			["Inline"] = FromRGB(22, 20, 24),
-			["Border"] = FromRGB(41, 37, 45),
+        ["Default"] = {
+			["Background"] = FromRGB(12, 15, 24),     --ปรับพื้นหลังให้เป็นน้ำเงินเข้มเกือบดำ
+			["Inline"] = FromRGB(18, 22, 35),         --ปรับกรอบย่อยให้เป็นโทนน้ำเงินเข้ม
+			["Border"] = FromRGB(35, 45, 70),         --ปรับสีขอบเส้น
 			["Shadow"] = FromRGB(0, 0, 0),
 			["Text"] = FromRGB(255, 255, 255),
 			["Inactive Text"] = FromRGB(185, 185, 185),
-			["Accent"] = FromRGB(232, 186, 248),
-			["Element"] = FromRGB(36, 32, 39),
+			["Accent"] = FromRGB(50, 150, 255),       --ปรับสีไฮไลท์หลักเป็นสีฟ้าสว่าง
+			["Element"] = FromRGB(28, 36, 56),        --ปรับสีปุ่มหรือองค์ประกอบภายใน
 			["Gradient"] = FromRGB(216, 216, 216)
 		},
 
