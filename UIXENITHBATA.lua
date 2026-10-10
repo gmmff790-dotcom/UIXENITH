@@ -224,7 +224,7 @@ local Library do
 	}
 
 	local Themes = { -- edit this to change the theme
-        ["Default"] = {
+		["Default"] = {
 			["Background"] = FromRGB(12, 15, 24),     --ปรับพื้นหลังให้เป็นน้ำเงินเข้มเกือบดำ
 			["Inline"] = FromRGB(18, 22, 35),         --ปรับกรอบย่อยให้เป็นโทนน้ำเงินเข้ม
 			["Border"] = FromRGB(35, 45, 70),         --ปรับสีขอบเส้น
