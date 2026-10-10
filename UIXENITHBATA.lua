@@ -223,17 +223,17 @@ local Library do
 		["RightAlt"]          = "RightAlt"
 	}
 
-	local Themes = { -- edit this to change the theme
+local Themes = { -- edit this to change the theme
 		["Default"] = {
-			["Background"] = FromRGB(12, 15, 24),     --ปรับพื้นหลังให้เป็นน้ำเงินเข้มเกือบดำ
-			["Inline"] = FromRGB(18, 22, 35),         --ปรับกรอบย่อยให้เป็นโทนน้ำเงินเข้ม
-			["Border"] = FromRGB(35, 45, 70),         --ปรับสีขอบเส้น
+			["Background"] = FromRGB(10, 18, 32),     -- น้ำเงินเข้มมาก (พื้นหลังหลัก)
+			["Inline"] = FromRGB(16, 28, 48),         -- น้ำเงินเข้ม (กรอบ Section / แถบค้นหา)
+			["Border"] = FromRGB(30, 60, 100),        -- เส้นขอบ UI
 			["Shadow"] = FromRGB(0, 0, 0),
 			["Text"] = FromRGB(255, 255, 255),
-			["Inactive Text"] = FromRGB(185, 185, 185),
-			["Accent"] = FromRGB(50, 150, 255),       --ปรับสีไฮไลท์หลักเป็นสีฟ้าสว่าง
-			["Element"] = FromRGB(28, 36, 56),        --ปรับสีปุ่มหรือองค์ประกอบภายใน
-			["Gradient"] = FromRGB(216, 216, 216)
+			["Inactive Text"] = FromRGB(140, 170, 200),
+			["Accent"] = FromRGB(0, 150, 255),        -- ฟ้าสว่าง (ปุ่มเปิด/ปิด, สไลเดอร์, ไฮไลท์)
+			["Element"] = FromRGB(24, 42, 70),        -- น้ำเงินปานกลาง (ปุ่มและองค์ประกอบภายใน)
+			["Gradient"] = FromRGB(100, 180, 255)     -- ฟ้าอ่อน (ไล่ระดับสี)
 		},
 
 		["Halloween"] = {
@@ -300,10 +300,21 @@ local Library do
 	Library.Theme = TableClone(Themes["Default"])
 	Library.Themes = Themes
 
-	-- Folders
-	for Index, Value in Library.Folders do 
-		if not isfolder(Value) then
-			makefolder(Value)
+	Library.ChangeTheme = function(self, Theme, Color)
+		self.Theme[Theme] = Color
+
+		for _, Item in self.ThemeItems do
+			if not Item.Properties then 
+				continue
+			end
+
+			for Property, Value in Item.Properties do
+				if type(Value) == "string" and Value == Theme then
+					Item.Item[Property] = Color
+				elseif type(Value) == "function" then
+					Item.Item[Property] = Value()
+				end
+			end
 		end
 	end
 
