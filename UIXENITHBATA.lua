@@ -4802,50 +4802,20 @@ function Library:Watermark(Name)
 				BackgroundColor3 = FromRGB(15, 12, 16)
 			})  Items["MainFrame"]:AddToTheme({BackgroundColor3 = "Background"})
 
-			Items["MainFrame"]:MakeDraggable()
+            Items["MainFrame"]:MakeDraggable()
 			Items["MainFrame"]:MakeResizeable(Vector2New(Window.Size.X.Offset, Window.Size.Y.Offset), Vector2New(9999, 9999))
 
-			Items["ImageBackground"] = Instances:Create("ImageLabel", {
+			-- โลโก้ค่าย
+			Items["CompanyLogo"] = Instances:Create("ImageLabel", {
 				Parent = Items["MainFrame"].Instance,
-				Name = "\0",
-				BorderColor3 = FromRGB(0, 0, 0),
-				Image = Window.BackgroundIcon,
+				Name = "CompanyLogo",
+				Image = "rbxassetid://126239192307237",
 				BackgroundTransparency = 1,
-				Size = UDim2New(1, 0, 1, 0),
-				BorderSizePixel = 0,
-				BackgroundColor3 = FromRGB(255, 255, 255)
+				Size = UDim2New(0, 16, 0, 16),
+				Position = UDim2New(0, 8, 0, 8),
+				ZIndex = 3,
+				ScaleType = Enum.ScaleType.Fit
 			})
-
-			Instances:Create("UICorner", {
-				Parent = Items["ImageBackground"].Instance,
-				Name = "\0",
-				CornerRadius = UDimNew(0, 5)
-			})
-
-			Instances:Create("UICorner", {
-				Parent = Items["MainFrame"].Instance,
-				Name = "\0",
-				CornerRadius = UDimNew(0, 5)
-			})
-
-			Items["Shadow"] = Instances:Create("ImageLabel", {
-				Parent = Items["MainFrame"].Instance,
-				Name = "\0",
-				ImageColor3 = FromRGB(0, 0, 0),
-				ImageTransparency = 0.5600000023841858,
-				AnchorPoint = Vector2New(0.5, 0.5),
-				Image = "rbxassetid://112971167999062",
-				ZIndex = -1,
-				BorderSizePixel = 0,
-				SliceCenter = RectNew(Vector2New(112, 112), Vector2New(147, 147)),
-				ScaleType = Enum.ScaleType.Slice,
-				BorderColor3 = FromRGB(0, 0, 0),
-				BackgroundTransparency = 1,
-				Position = UDim2New(0.5, 0, 0.5, 0),
-				SliceScale = 0.6000000238418579,
-				Size = UDim2New(1, 55, 1, 55),
-				BackgroundColor3 = FromRGB(255, 255, 255)
-			})  Items["Shadow"]:AddToTheme({ImageColor3 = "Shadow"})
 
 			Items["Title"] = Instances:Create("TextLabel", {
 				Parent = Items["MainFrame"].Instance,
@@ -4857,7 +4827,7 @@ function Library:Watermark(Name)
 				AutomaticSize = Enum.AutomaticSize.X,
 				Size = UDim2New(0, 0, 0, 15),
 				BackgroundTransparency = 1,
-				Position = UDim2New(0, 9, 0, 8),
+				Position = UDim2New(0, 30, 0, 8), -- เว้นระยะหลบโลโก้
 				BorderSizePixel = 0,
 				ZIndex = 2,
 				TextSize = 14,
